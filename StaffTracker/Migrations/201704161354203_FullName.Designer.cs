@@ -7,13 +7,13 @@ namespace StaffTracker.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class fullname : IMigrationMetadata
+    public sealed partial class FullName : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fullname));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FullName));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703191026523_fullname"; }
+            get { return "201704161354203_FullName"; }
         }
         
         string IMigrationMetadata.Source
