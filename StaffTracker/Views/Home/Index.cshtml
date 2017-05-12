@@ -2,18 +2,34 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Time & Attendance</h2>
-        <p>
-            Record your shift times using the buttons below
-        </p>
-        <hr />
-        @Html.ActionLink("Start Shift", "Index", "Home", new { @class = "btn btn-lg btn-success btn-block" })
-        <br />
-        @Html.ActionLink("End Shift", "Index", "Home", new { @class = "btn btn-lg btn-danger btn-block" })
-        <hr />
-        <h4>To view our policies</h4>
-        @Html.ActionLink("View Policies", "Index", "Home", new { @class = "btn btn-lg btn-primary btn-block" })
+
+@using (Html.BeginForm("RecordLocation", "Home", FormMethod.Post, new { role = "form" }))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Time & Attendance</h2>
+            <p>
+                Record your shift times using the buttons below
+            </p>
+            <hr />
+            @if (ViewBag.AtWork == true)
+            {
+                <h3>You are currently marked as 'at work'</h3>
+                <input type="submit" class="btn btn-danger btn-lg btn-block" value="End Shift" />
+            }
+            else
+            {
+                <input type="submit" class="btn btn-success btn-lg btn-block" value="Start Shift" />
+            }
+            <br />
+            <p>By clicking this button your location and the current date/time will be recorded.</p>
+            <hr />
+            <h4>To view our policies:</h4>
+            @Html.ActionLink("View Policies", "Index", "Home", new { @class = "btn btn-lg btn-primary btn-block" })
+        </div>
     </div>
-</div>
+}
+
+<script>
+
+</script>

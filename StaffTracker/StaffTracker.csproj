@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,14 @@
     <Compile Include="Migrations\201704161408492_RegistrationDetails.cs" />
     <Compile Include="Migrations\201704161408492_RegistrationDetails.Designer.cs">
       <DependentUpon>201704161408492_RegistrationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021107077_Lifeguard.cs" />
+    <Compile Include="Migrations\201705021107077_Lifeguard.Designer.cs">
+      <DependentUpon>201705021107077_Lifeguard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051606111_AtWorkField.cs" />
+    <Compile Include="Migrations\201705051606111_AtWorkField.Designer.cs">
+      <DependentUpon>201705051606111_AtWorkField.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -225,7 +234,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\StuStaffTracker - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\StusStaffTracker - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -299,6 +308,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704161408492_RegistrationDetails.resx">
       <DependentUpon>201704161408492_RegistrationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021107077_Lifeguard.resx">
+      <DependentUpon>201705021107077_Lifeguard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051606111_AtWorkField.resx">
+      <DependentUpon>201705051606111_AtWorkField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -15,10 +15,12 @@ namespace StaffTracker.Models
         public String Medical_Conditions { get; set; }
         public String DBS_No { get; set; }
         public DateTime DBS_Clearance_Date { get; set; }
+        public String Lifeguard_Qualification { get; set; }
         public DateTime Lifeguard_Qualification_Expiry_Date { get; set; }
         public String Teaching_Qualification { get; set; }
         public DateTime Teaching_Qualification_Date { get; set; }
         public String Address { get; set; }
+        public Boolean AtWork { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
