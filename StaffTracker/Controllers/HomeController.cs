@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using StaffTracker.Extensions;
 using Microsoft.AspNet.Identity.Owin;
+using StaffTracker.Models;
 
 namespace StaffTracker.Controllers
 {
@@ -42,10 +43,10 @@ namespace StaffTracker.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> UpdateShift()
+        public async Task<ActionResult> UpdateShift(FormCollection FormData)
         {
-
-//            var latlon = FormData["coords[latitude]"] + "," + FormData["coords[longitude]"];
+            var latitude = FormData["coords[latitude]"];
+            var longtitude = FormData["coords[longitude]"];
             var checkinTime = DateTime.Now;
 
             //Is employee at work?
@@ -55,6 +56,18 @@ namespace StaffTracker.Controllers
             var user = UserManager.FindById(userId);
 
             user.AtWork = !user.AtWork;
+
+            UserLog userLog = new UserLog()
+            {
+                UserLogID = Guid.NewGuid(),
+                DateTimeStamp = checkinTime,
+                UserId = userId,
+                Latitude = latitude,
+                Longtitude = longtitude
+            };
+
+            user.UserLogs.Add(userLog);
+
             var updateUser = await UserManager.UpdateAsync(user);
 
             string ReturnUrl = "";

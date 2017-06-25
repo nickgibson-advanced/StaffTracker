@@ -215,10 +215,15 @@
     <Compile Include="Migrations\201705051606111_AtWorkField.Designer.cs">
       <DependentUpon>201705051606111_AtWorkField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706252058067_UserLogs.cs" />
+    <Compile Include="Migrations\201706252058067_UserLogs.Designer.cs">
+      <DependentUpon>201706252058067_UserLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -314,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705051606111_AtWorkField.resx">
       <DependentUpon>201705051606111_AtWorkField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706252058067_UserLogs.resx">
+      <DependentUpon>201706252058067_UserLogs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
