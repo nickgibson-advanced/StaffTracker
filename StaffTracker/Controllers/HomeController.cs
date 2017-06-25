@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using StaffTracker.Extensions;
@@ -19,9 +20,6 @@ namespace StaffTracker.Controllers
 
             var userId = User.Identity.GetUserId();
             var user = UserManager.FindById(userId);
-
-            //user.AtWork = true;
-            //UserManager.Update(user);
 
             ViewBag.AtWork = user.AtWork;
 
@@ -43,9 +41,24 @@ namespace StaffTracker.Controllers
         }
 
         [HttpPost]
-        public ActionResult RecordLocation()
+        [AllowAnonymous]
+        public async Task<ActionResult> UpdateShift()
         {
-            return RedirectToAction("Index");
+
+//            var latlon = FormData["coords[latitude]"] + "," + FormData["coords[longitude]"];
+            var checkinTime = DateTime.Now;
+
+            //Is employee at work?
+            ApplicationUserManager UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
+
+            user.AtWork = !user.AtWork;
+            var updateUser = await UserManager.UpdateAsync(user);
+
+            string ReturnUrl = "";
+            return Json(ReturnUrl);
         }
     }
 }
